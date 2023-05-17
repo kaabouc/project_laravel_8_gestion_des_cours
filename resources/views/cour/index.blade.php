@@ -17,10 +17,15 @@
     {{ session()->get('success') }}
   </div><br />
   @endif
-  <a href="{{ route('cours.create')}}" class="btn btn-primary">Ajouter</a>
-
-
-
+  @guest
+    <!-- Code pour les utilisateurs invités -->
+         @else
+          @if (Route::has('login') || Route::has('registre'))
+         <a href="{{ route('cours.create')}}" class="btn btn-primary">Ajouter</a>
+        
+    @endif
+@endguest
+ 
 
 <div class="row">
   

@@ -61,7 +61,7 @@
           </div>
           
 
-          <div>{{ $coure->Path_file }}</div>
+       
         
           <div class="form-group">
               <label for="Path_file">file :</label>
@@ -69,7 +69,7 @@
           
           </div>
           <button type="submit" class="btn btn-primary">Modifier</button>
-          <a class="btn btn-primary" href="{{ route('cours.index')}}">canel</a>
+          <a class="btn btn-primary" href="{{ route('cours.show',$coure->id)}}">canel</a>
       </form>
   </div>
 </div>

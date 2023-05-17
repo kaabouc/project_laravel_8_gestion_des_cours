@@ -71,6 +71,4 @@ Route::get('/page/service', function(){
     return view('page.service');
 });
 
-Route::get('', function(){
-    return view('page.service');
-} );
+Route::get('',  [App\Http\Controllers\CourController::class, 'index']);

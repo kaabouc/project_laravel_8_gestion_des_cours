@@ -58,11 +58,8 @@
               <label for="">domain : {{ $coure->Name_domaine}}</label>
              
           </div>
-          <div>{{ $coure->Path_file }}</div>
-         <img src="{{ asset(substr($coure->Path_file ,9)) }}" />
-          <div class="form-group">
-              <label for="Path_file">file :{{ $coure->Path_file }} </label>
-          </div>
+        
+         
          
           <a class="btn btn-primary" href="{{ route('cours.index')}}">canel</a> 
          <br>
@@ -85,7 +82,7 @@
             $courseUser = $coure->user()->first();
           @endphp
 
-         @if ($currentUser && $courseUser && $currentUser->id === $courseUser->id)
+         @if (($currentUser && $courseUser && $currentUser->id === $courseUser->id) || ($currentUser && $currentUser->role == 1))
             <td>
                 <form action="{{ route('cours.destroy', $coure->id)}}" method="post">
                     @csrf

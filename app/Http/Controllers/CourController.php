@@ -115,7 +115,7 @@ class CourController extends Controller
 
         $coure->update();
 
-        return redirect('cours.index')->with('success', 'cour mise à jour avec succèss');
+        return redirect('/cours/'.$coure->id)->with('success', 'cour mise à jour avec succèss');
     }
 
     /**

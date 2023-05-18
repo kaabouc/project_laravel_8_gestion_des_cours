@@ -19,6 +19,7 @@ class CourController extends Controller
     public function index()
     {
         $cours = Cour::paginate(8);
+        $cours->links();
        // $cours = Cour::where('user_id',Auth::user()->id)->get();
       //  $cours = $filier->Cours();
         return view('cour.index', compact('cours'));

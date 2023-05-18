@@ -15,7 +15,7 @@ class SearchController extends Controller
             ->orWhere('Name_prof', 'like', '%'.$term.'%')
             ->orWhere('Ecole_name', 'like', '%'.$term.'%')
             ->orderBy('Name_domaine', 'desc')
-            ->get();
+            ->paginate(8);
             return view('cour.index', compact('cours', 'term'));
     }
 }

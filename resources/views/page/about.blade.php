@@ -23,10 +23,10 @@
               </h2>
             </div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            Elle lui permet de s’ouvrir au monde des livres. 
+            Il peut voir et choisir des livres qui l’intéressent. Rapporter à la maison des livres qu’il a choisis est une bonne façon de l’aider à développer une relation positive avec les livres et de lui donner le goût de lire.
             </p>
-            <a href="">
+            <a href="#">
               Read More
             </a>
           </div>

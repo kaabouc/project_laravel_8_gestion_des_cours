@@ -67,7 +67,7 @@
                               </div></td>
                               <td> <button type="submit" class="btn btn-primary">Search</button></td></tr>
                            </table>
-                       </form>
+             </form>
                      
             </div>
             <div class="quote_btn-container ">
@@ -89,7 +89,7 @@
                             @endif
                         @else
                             <li class="nav-item ">
-                                <a id="navbarDropdown" href="{{ route('user',$item->user->id) }}"  role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a   href="{{ route('user',Auth::user()->id)}}"  role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
                             </li>

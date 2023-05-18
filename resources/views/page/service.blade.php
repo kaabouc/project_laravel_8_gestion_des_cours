@@ -1,93 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-  <!-- service section -->
-  <section class="service_section layout_padding">
-    <div class="container-fluid">
-      <div class="heading_container">
-        <h2>
-          Our Services
-        </h2>
-        <p>
-          consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-
-      <div class="service_container">
-        <div class="box">
-          <div class="img-box">
-            <img src="{{url('images/s-1.png')}}" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Brand Promotion
-            </h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            </p>
-          </div>
+        <!-- about section start -->
+        <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 about_main">
+                    <h1 class="about_text">SER<span style="color: #f7566e;">VICE</span></h1>
+                    <p class="dummy_text">Les sites web de bibliothèques proposent une variété de services 
+                      pour simplifier l'accès aux ressources et aux informations. Ils offrent généralement des 
+                      fonctionnalités telles que la recherche en ligne, la consultation du catalogue, le renouvellement 
+                      des emprunts, les réservations et les demandes, l'accès aux ressources électroniques, les services de référence,
+                       ainsi que des informations sur les événements et programmes proposés par la bibliothèque. Ces services visent à
+                        rendre l'expérience des utilisateurs plus pratique et enrichissante en leur permettant d'explorer et d'utiliser
+                       les ressources de la bibliothèque de manière efficace et accessible.</p>
+                    <div class="read_bt"><a href="#">Read More</a></div>
+                </div> 
+                <div class="col-sm-8">
+                    <div style="margin-left: 240px;"><img src="{{ asset('images/livre.png') }}"></div>
+                </div>
+            </div>
         </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="{{ url('images/s-2.png')}}" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Video Marketing
-
-            </h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src=" {{url('images/s-3.png')}}" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Site Analysis
-            </h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="{{ url('images/s-4.png')}}" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Social Media Marketing
-            </h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="{{ url('images/s-5.png')}}" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              SEO Optimization
-            </h5>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          Read More
-        </a>
-      </div>
     </div>
-  </section>
-  <!-- end service section -->
+    <!-- about section end -->
 
  @endsection

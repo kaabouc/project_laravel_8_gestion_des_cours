@@ -71,4 +71,7 @@ Route::get('/page/service', function(){
     return view('page.service');
 });
 
-Route::get('',  [App\Http\Controllers\CourController::class, 'index']);
+Route::get('/user/{id}',  [App\Http\Controllers\UserController::class , 'show'])->name('user');
+
+
+Route::get('',  [App\Http\Controllers\CourController::class , 'index']);

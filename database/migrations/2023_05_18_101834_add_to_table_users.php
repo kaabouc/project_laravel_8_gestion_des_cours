@@ -14,8 +14,8 @@ class AddToTableUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('photo_user')->nullable();
-            $table->string('description_user')->default('Jeune étudiante  à la recherche un contrat à temps partiel. Dynamique et rigoureuse');
+            $table->string('photo_user')->default('');
+            $table->string('description_user')->default('test');
             $table->string('fonction_user')->default('etudiant');
         });
     }
@@ -28,7 +28,7 @@ class AddToTableUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-         //   
+            //
         });
     }
 }

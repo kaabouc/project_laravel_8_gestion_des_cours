@@ -34,13 +34,12 @@
    
       <img class="card-img-top" src="{{ url('images/hihi.jpeg')}}" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">{{ $item->Name_cour}}  cree par <br><a style="color:red">{{$item->user->name}} </a></h5>
+        <h5 class="card-title">{{ $item->Name_cour}}  cree par <br><a style="color:red; " href="{{ route('user',$item->user->id) }}" >{{$item->user->name}} </a></h5>
         <p class="card-text"> cour of university {{$item->Ecole_name}}  .</p>
       </div>
-      <ul class="list-group list-group-flush">
+      <ul class="list-group list-2-flush">
         <li class="list-group-item">nom de professer {{ $item->Name_prof}}</li>
-        <li class="list-group-item">{{$item->Name_domaine}}</li>
-        
+        <li class="list-group-item">{{$item->Name_domaine}}</li>  
       </ul>
       <div class="card-body">
         <a href="{{ route('download',substr($item->Path_file ,9)) }}" class="card-link">download</a>
@@ -50,6 +49,9 @@
     @endforeach
 
   
+</div>
+<div class="pagination-links" style=" margin-top: 20px; margin-left: 600px; " >
+    {{ $cours->links('pagination::bootstrap-4', ['prev_text' => '&laquo; Précédent', 'next_text' => 'Suivant &raquo;']) }}
 </div>
 
   

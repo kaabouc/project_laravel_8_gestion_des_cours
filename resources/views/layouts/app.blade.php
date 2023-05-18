@@ -6,8 +6,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+  
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/livre.png') }}"/>
+    <title>BMK</title>
 
     <!-- Scripts -->
     <script src="../../js/bootstrap.min.js" defer></script>
@@ -88,7 +89,7 @@
                             @endif
                         @else
                             <li class="nav-item ">
-                                <a id="navbarDropdown" href="#" role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" href="{{ route('user',$item->user->id) }}"  role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
                             </li>
@@ -155,7 +156,7 @@
                 <div class="col-md-6 ">
                   <div class="detail_box">
                     <h1>
-                      The best marketing
+                    The best librery
                     </h1>
                     <p>
                       It is a long established fact that a reader will be distracted by the readable content of a page
@@ -185,7 +186,7 @@
                 <div class="col-md-6 ">
                   <div class="detail_box">
                     <h1>
-                      The best marketing
+                    The best librery
                     </h1>
                     <p>
                       It is a long established fact that a reader will be distracted by the readable content of a page

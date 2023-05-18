@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CourRequest;
 use App\Models\cour;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -65,9 +66,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $coure = Cour::findOrFail($id);
+        $user=User::findOrFail($id);
+        $cours = Cour::where('user_id',$id)->get();
 
-        return view('cour.detail', compact('coure')); 
+        return view('user.detail', compact('cours','user')); 
     }
 
     /**

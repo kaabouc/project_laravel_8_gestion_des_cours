@@ -70,7 +70,7 @@
              </form>
                      
             </div>
-            <div class="quote_btn-container ">
+          <div class="quote_btn-container ">
             <div class="input-group">
                        
             <ul class="navbar-nav ms-auto">
@@ -89,7 +89,7 @@
                             @endif
                         @else
                             <li class="nav-item ">
-                                <a   href="{{ route('user',Auth::user()->id)}}"  role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a   href="{{ route('user',Auth::user()->id)}}" style="font-size: 25px;" role="button"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
                             </li>
@@ -328,7 +328,7 @@
               <img src="{{ url('images/envelope-white.png')}}" width="18px" alt="">
             </div>
             <p>
-              medka_biblitheque@gmail.com
+              mohamedkaabouch249@gmail.com
             </p>
           </a>
         </div>
@@ -340,17 +340,17 @@
           </h4>
           
           <div class="social_box">
-            <a href="">
+            <a href="https://www.instagram.com/the_medka/">
               <img src="{{ asset('images/info-fb.png')}}" alt="">
               
           facebook   </a>
-            <a href="">
+            <a href="https://twitter.com/medka200">
               <img src="{{ url('images/info-twitter.png')}}" alt="">
             twitter</a>
-            <a href="">
+            <a href="https://www.linkedin.com/in/mohamed-kaabouch-b37687214/">
               <img src="{{url('images/info-linkedin.png')}}" alt="">
            linkedin </a>
-            <a href="">
+            <a href="https://www.youtube.com/">
               <img src="{{url('images/info-youtube.png')}}" alt="">
            youtube </a>
           </div>

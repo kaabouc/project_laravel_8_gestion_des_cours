@@ -74,4 +74,7 @@ Route::get('/page/service', function(){
 Route::get('/user/{id}',  [App\Http\Controllers\UserController::class , 'show'])->name('user');
 
 
+Route::get('/afficher-file/{id}', [App\Http\Controllers\CourController::class , 'afficher_file'])->name('afficher-file');
+
+
 Route::get('',  [App\Http\Controllers\CourController::class , 'index']);

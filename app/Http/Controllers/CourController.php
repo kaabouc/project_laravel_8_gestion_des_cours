@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CourRequest;
 use App\Models\cour;
 use App\Models\User;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PDO;
@@ -74,8 +75,12 @@ class CourController extends Controller
     public function show($id)
     {
         $coure = Cour::findOrFail($id);
+        $cours = Cour::where('Name_cour', 'like', '%'.$coure->Name_cour.'%')
+        ->orWhere('Name_domaine', 'like', '%'.$coure->Name_domaine.'%')
+        ->orderBy('Name_domaine', 'desc')
+        ->paginate(8);
 
-        return view('cour.detail', compact('coure')); 
+        return view('cour.detail', compact('coure','cours')); 
     }
 
     /**
@@ -154,5 +159,25 @@ class CourController extends Controller
     //                     ->get();
     // return view('cour.index', compact('cours', 'term'));
     // }
+
+    public function afficher_file ($id){
+        $fichier=cour::find($id);
+
+        if ($fichier) {
+            $filePath = storage_path('app/' . $fichier->Path_file);
+            $fileName = $fichier->Name_cour;
     
+         
+            return response()->file($filePath, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename="' . $fileName . '"'
+            ]);
+    
+        } else {
+            // Gérer le cas où le fichier n'est pas trouvé
+            // Par exemple, rediriger vers une page d'erreur ou afficher un message d'erreur
+        }
+    
+    
+       }
 }

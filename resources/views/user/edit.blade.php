@@ -25,51 +25,41 @@
       </div><br />
     @endif
 
-      <form method="post" action="{{ route('cours.update', $coure->id ) }}"  enctype="multipart/form-data">
+      <form method="post" action="{{ route('users.update', $user->id ) }}"  enctype="multipart/form-data">
          @csrf
           @method('PUT')
           <div class="form-group">
-              <label for="Name_cour">Titre :</label>
-              <input type="text" class="form-control" name="Name_cour"  value="{{ $coure->Name_cour}}"/>
+              <label for="Name_cour">Name  :</label>
+              <input type="text" class="form-control" name="name"  value="{{ $user->name}}"/>
           </div>
           <div class="form-group">
-              <label for="">Nom de prof </label>
-              <input type="text" class="form-control" name="Name_prof"  value="{{ $coure->Name_prof}}"/>
+              <label for="">description ustilisateur  </label>
+              <input type="text" class="form-control" name="description_user"  value="{{ $user->description_user}}"/>
           </div>
           <div class="form-group">
-              <label for="Name_brache">Name_brache :</label>
-              <input type="text" class="form-control" name="Name_brache" value="{{ $coure->Name_brache}}"/>
+              <label for="Name_brache">fonction de  user :</label>
+              <input type="text" class="form-control" name="fonction_user" value="{{ $user->fonction_user}}"/>
           </div>
           
           <div class="form-group">
-              <label for="Detail_cour"> Detail  cour: </label>
-              <input type="text" class="form-control" name="Detail_cour" value="{{ $coure->Detail_cour}}"/>
+              <label for="Detail_cour"> email  : </label>
+              <input type="text" class="form-control" name="email" value="{{ $user->email}}"/>
           </div>
-          <div class="form-group">
-              <label for="Ecole_name">Ecole_name :</label>
-              <input type="text" class="form-control" name="Ecole_name" value="{{ $coure->Ecole_name}}"/>
-          </div>
-          <div class="form-group">
-              <label for="Ecole_email">Ecole_email :</label>
-              <input type="text" class="form-control" name="Ecole_email" value="{{ $coure->Ecole_email}}"/>
-          </div>
-          
-          
-          <div class="form-group">
-              <label for="">domain :</label>
-              <input type="text" class="form-control" name="Name_domaine" value="{{ $coure->Name_domaine}}"/>
-          </div>
-          
-
-          <div>{{ $coure->Path_file }}</div>
         
+          
+          
           <div class="form-group">
-              <label for="Path_file">file :</label>
-              <input type="file" class="form-control" name="Path_file" value="{{ $coure->Path_file }}"/>
+              <label for="">password :</label>
+              <input type="text" class="form-control" name="password" value="{{ $user->password}}"/>
+          </div>
+       
+          <div class="form-group">
+              <label for="photo_user">file :</label>
+              <input type="file" class="form-control" name="photo_user" value="{{ $user->photo_user }}"/>
           
           </div>
           <button type="submit" class="btn btn-primary">Modifier</button>
-          <a class="btn btn-primary" href="{{ route('cours.index')}}">canel</a>
+          <a class="btn btn-primary" href="{{ route('users.index')}}">canel</a>
       </form>
   </div>
 </div>

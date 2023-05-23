@@ -7,16 +7,17 @@ use App\Models\cour;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     
     public function index()
     {
-        $cours = cour::all();
+        $users = User::all();
        // $cours = Cour::where('user_id',Auth::user()->id)->get();
       //  $cours = $filier->Cours();
-        return view('cour.index', compact('cours'));
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -26,9 +27,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        // return view('cour.create');
-     
-        return view('cour.create');    
+        
+        return view('user.create');    
     }
 
     /**
@@ -37,24 +37,24 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CourRequest $request )
+    public function store(Request $request )
     {
-        $coure = new Cour;
-        $coure->user_id = Auth::user()->id;
-        $coure->Name_cour = $request->input('Name_cour');
-        $coure->Detail_cour = $request->input('Detail_cour');
-        $coure->Name_prof = $request->input('Name_prof');
-        $coure->Name_domaine = $request->input('Name_domaine');
-        $coure->Name_brache = $request->input('Name_brache');
-        $coure->Ecole_name = $request->input('Ecole_name');
-        $coure->Ecole_email = $request->input('Ecole_email');
-        if ($request->hasFile('Path_file')) {
-            $path = $request->Path_file->store('fichiers');
-           $coure->Path_file=$path;
-        }
-        $coure->save();
+        $user = new User;
+        $user->name =$request->input('name');
+        $user->description_user = $request->input('description_user');
+        $user->fonction_user = $request->input('fonction_user');
+        $user->email = $request->input('email');
+         $password = $request->input('password');
+         $hashedPassword = Hash::make($password);
+        $user->password = $hashedPassword ; 
 
-        return redirect()->route('cours.index');
+        if ($request->hasFile('photo_user')) {
+            $path = $request->photo_user->store('fichiers');
+           $user->photo_user=$path;
+        }
+        $user->save();
+
+        return redirect()->route('users.index');
         // return redirect('/cours')->with('success', 'cour créer avec succèss');
     }
 
@@ -71,7 +71,7 @@ class UserController extends Controller
 
         return view('user.detail', compact('cours','user')); 
     }
-
+ 
     /**
      * Show the form for editing the specified resource.
      *
@@ -81,9 +81,9 @@ class UserController extends Controller
     public function edit($id)
     {
         
-        $coure = Cour::find($id);
+        $user = User::find($id);
 
-        return view('cour.edit' , compact('coure'));
+        return view('user.edit' , compact('user'));
     }
 
     /**
@@ -93,24 +93,24 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CourRequest $request, $id)
+    public function update(Request $request, $id)
     {  
-        $coure = Cour::find($id);
-        $coure->Name_cour = $request->input('Name_cour');
-        $coure->Detail_cour = $request->input('Detail_cour');
-        $coure->Name_prof = $request->input('Name_prof');
-        $coure->Name_domaine = $request->input('Name_domaine');
-        $coure->Name_brache = $request->input('Name_brache');
-        $coure->Ecole_name = $request->input('Ecole_name');
-        $coure->Ecole_email = $request->input('Ecole_email');
-        if ($request->hasFile('Path_file')) {
-            $path = $request->Path_file->store('fichiers');
-           $coure->Path_file=$path;
+        $user = User::find($id);
+        $user->name =$request->input('name');
+        $user->description_user = $request->input('description_user');
+        $user->fonction_user = $request->input('fonction_user');
+        $user->email = $request->input('email');
+         $password = $request->input('password');
+         $hashedPassword = Hash::make($password);
+        $user->password = $hashedPassword ; 
+
+        if ($request->hasFile('photo_user')) {
+            $path = $request->photo_user->store('fichiers');
+           $user->photo_user=$path;
         }
+        $user->update();
 
-        $coure->update();
-
-        return redirect('cours.index')->with('success', 'cour mise à jour avec succèss');
+        return  redirect()->route('users.index')->with('success', 'user mise à jour avec succèss');
     }
 
     /**
@@ -121,9 +121,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $cour = cour::find($id);
-        $cour->delete();
-        return redirect()->back()->with('status','Student Deleted Successfully');
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back()->with('status','user Deleted Successfully');
     }
 
 }

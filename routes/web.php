@@ -72,7 +72,11 @@ Route::get('/page/service', function(){
     return view('page.service');
 });
 
+Route::resource('users', UserController::class);
 Route::get('/user/{id}',  [App\Http\Controllers\UserController::class , 'show'])->name('user');
+
+Route::get('/user',  [App\Http\Controllers\UserController::class , 'index'])->name('users');
+
 
 
 Route::get('/afficher-file/{id}', [App\Http\Controllers\CourController::class , 'afficher_file'])->name('afficher-file');

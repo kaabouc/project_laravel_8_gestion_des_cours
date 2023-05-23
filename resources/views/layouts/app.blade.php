@@ -59,7 +59,25 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#contactLink">Contact Us</a>
                 </li>
-              
+                @guest
+  
+                <!-- Code pour les utilisateurs invités -->
+                    @else
+                    @if (Route::has('login') || Route::has('registre'))
+                      @php
+                        $currentUser = auth()->user();
+                      
+                      @endphp
+
+                    @if ( $currentUser && $currentUser->role == 1)
+                    <li class="nav-item" >
+                     <a class="nav-link" href="{{ route('users')}}">users</a>
+                    </li>
+                    
+                    @endif
+                @endif
+              @endguest
+                            
               </ul>
               <form  action="{{ route('search') }}">
                      <table>  <tr><td> <div class="form-outline">

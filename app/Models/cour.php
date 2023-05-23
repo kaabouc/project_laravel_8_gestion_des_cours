@@ -11,7 +11,7 @@ class cour extends Model
     use HasFactory;
     use SoftDeletes ;
     protected $fillable = ['Name_cour', 'Name_prof','Detail_cour','Name_domaine','Name_brache','Ecole_name','Ecole_email','Path_file'];
-
+   
     protected $dates=['deleted_at'];
     
     public function user(){ 

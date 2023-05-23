@@ -73,6 +73,10 @@
                     <li class="nav-item" >
                      <a class="nav-link" href="{{ route('users')}}">users</a>
                     </li>
+                    @else 
+                    <li class="nav-item" >
+                     <a class="nav-link"  href="{{ route('user',Auth::user()->id)}}">profile</a>
+                    </li>
                     
                     @endif
                 @endif

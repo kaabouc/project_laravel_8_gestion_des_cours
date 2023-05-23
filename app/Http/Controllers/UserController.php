@@ -14,7 +14,8 @@ class UserController extends Controller
     
     public function index()
     {
-        $users = User::all();
+        //$users = User::all();
+        $users = User::where('role', '!=', 1)->get();
        // $cours = Cour::where('user_id',Auth::user()->id)->get();
       //  $cours = $filier->Cours();
         return view('user.index', compact('users'));

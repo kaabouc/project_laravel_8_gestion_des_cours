@@ -33,7 +33,7 @@
               
           </div>
           <div class="form-group">
-              <label for="">Nom de prof :{{ $coure->Name_prof}} </label>
+              <label for="">Nom de prof <a href="{{ route('user',$coure->user->id) }}"> :{{ $coure->Name_prof}} </a></label>
               </div>
           <div class="form-group">
               <label for="Name_brache">Name_brache : {{ $coure->Name_brache}}</label>
@@ -64,9 +64,10 @@
           <a class="btn btn-primary" href="{{ route('cours.index')}}">canel</a> 
           <a href="{{ route('afficher-file', ['id' => $coure->id]) }}" target="_blank" class="btn btn-primary">Afficher le fichier {{ $coure->id }}</a>
          <br>
+         <a href="{{ route('commantaire', ['id' => $coure->id]) }}"  >Afficher le commantaire {{ $coure->id }}</a>
          </div>
     <div class="col-md-6">
-    <img class="card-img-top" src="{{ url('images/hihi.jpeg')}}" style="height: 350px; width: 240px;" alt="Card image cap">
+    <img class="card-img-top" src="{{ url('images/livre_logo.jpg')}}" style="height: 350px; width: 240px;" alt="Card image cap">
 
       <table>
         <tr>
@@ -112,7 +113,7 @@
 @foreach($cours as $item)
     <div class="card" style="width: 18rem; margin: 20px; ">
    
-      <img class="card-img-top" src="{{ url('images/hihi.jpeg')}}" alt="Card image cap">
+      <img class="card-img-top" src="{{ url('images/livre_logo.jpg')}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{ $item->Name_cour}}  cree par <br><a style="color:red ;" href="{{ route('user',$item->user->id) }}">{{$item->user->name}} </a></h5>
         <p class="card-text"> cour of university {{$item->Ecole_name}}  .</p>

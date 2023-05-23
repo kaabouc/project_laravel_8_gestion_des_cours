@@ -64,4 +64,8 @@ class User extends Authenticatable
     public function cour(){ 
         return $this->hasMany('App\Models\cour');
     }
+    
+    public function Commantaire(){ 
+        return $this->hasMany('App\Models\Commantaire');
+    }
 }

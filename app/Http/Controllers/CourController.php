@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CourRequest;
+use App\Models\Commantaire;
 use App\Models\cour;
 use App\Models\User;
 use Facade\FlareClient\Http\Response;
@@ -79,10 +80,10 @@ class CourController extends Controller
         ->orWhere('Name_domaine', 'like', '%'.$coure->Name_domaine.'%')
         ->orderBy('Name_domaine', 'desc')
         ->paginate(8);
-
+        
         return view('cour.detail', compact('coure','cours')); 
     }
-
+ 
     /**
      * Show the form for editing the specified resource.
      *
@@ -134,7 +135,7 @@ class CourController extends Controller
     {
         $cour = cour::find($id);
         $cour->delete();
-        return redirect()->back()->with('status','Student Deleted Successfully');
+        return redirect()->back()->with('status','cour Deleted Successfully');
     }
 
     public function downloadfile($filename){

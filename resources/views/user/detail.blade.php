@@ -75,7 +75,7 @@
 @foreach($cours as $item)
     <div class="card" style="width: 18rem; margin: 20px; ">
    
-      <img class="card-img-top" src="{{ url('images/hihi.jpeg')}}" alt="Card image cap">
+      <img class="card-img-top" src="{{ url('images/livre_logo.jpg')}}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">{{ $item->Name_cour}}  cree par <br><a style="color:red ;" href="{{ route('user',$item->user->id) }}">{{$item->user->name}} </a></h5>
         <p class="card-text"> cour of university {{$item->Ecole_name}}  .</p>

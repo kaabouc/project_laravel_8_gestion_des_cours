@@ -17,4 +17,7 @@ class cour extends Model
     public function user(){ 
         return $this->belongsTo('App\Models\User');
     }
+    public function Commantaire(){ 
+        return $this->hasMany('App\Models\commantaire');
+    }
 }

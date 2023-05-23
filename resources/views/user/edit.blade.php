@@ -50,7 +50,7 @@
           
           <div class="form-group">
               <label for="">password :</label>
-              <input type="text" class="form-control" name="password" value="{{ $user->password}}"/>
+              <input type="text" class="form-control" name="password" />
           </div>
        
           <div class="form-group">

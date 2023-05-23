@@ -31,7 +31,7 @@
     <div class="col-md-6">
 
           <div class="form-group">
-              <label for="Name_cour" style="font-size: 30px;">Nom de utlisateur : {{ $user->name}}</label>
+              <label for="Name_cour" style="font-size: 30px;"> Nom de utlisateur : {{ $user->name}}</label>
               
           </div>
           <div class="form-group">
@@ -43,31 +43,34 @@
               <div class="form-group">
               <label for="">description sur etulisateur  :{{ $user->description_user}} </label>
               </div>
-          <a class="btn btn-primary" href="{{ route('cours.index')}}">canel</a> 
+          <a class="btn btn-primary" href="{{ route('cours.index')}}" >menu</a> 
          <br>
+
      </div>
     <div class="col-md-6">
     <!-- <div class="circle-container"> -->
-    <img class="card-img-top" src="{{ asset('storage/'.$user->photo_user)}}" style="height: 350px; width: 240px;" alt="Card image cap">
+    <img class="card-img-top" src="{{ asset('storage/'.$user->photo_user)}}" style="height: 300px; width: 240px; border-radius:50% ; overflow: hidden;" alt="Card image cap">
 <!-- </div> -->
+@guest
+  
+  <!-- Code pour les utilisateurs invités -->
+       @else
+       @if (Route::has('login') || Route::has('registre'))
+         @php
+          $currentUser = auth()->user();
+          $courseUser = $user;
+        @endphp
+
+       @if (($currentUser && $courseUser && $currentUser->id === $courseUser->id) || ($currentUser && $currentUser->role == 1))
+      <br> <a href="{{ route('cours.create')}}" class="btn btn-primary">Ajouter</a>
+       <td><a href="{{ route('users.edit', $user->id)}}" class="btn btn-primary">Modifier les information </a></td>
+       @endif
+  @endif
+@endguest
       
   </div>
    <hr>
-  @guest
-  
-    <!-- Code pour les utilisateurs invités -->
-         @else
-         @if (Route::has('login') || Route::has('registre'))
-           @php
-            $currentUser = auth()->user();
-            $courseUser = $user;
-          @endphp
-
-         @if (($currentUser && $courseUser && $currentUser->id === $courseUser->id) || ($currentUser && $currentUser->role == 1))
-         <a href="{{ route('cours.create')}}" class="btn btn-primary">Ajouter</a>
-         @endif
-    @endif
-@endguest
+ 
  
 
 <div class="row">

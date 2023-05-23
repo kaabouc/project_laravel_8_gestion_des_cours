@@ -161,7 +161,7 @@ class CourController extends Controller
     // return view('cour.index', compact('cours', 'term'));
     // }
 
-    public function afficher_file ($id){
+    public function afficher_file($id){
         $fichier=cour::find($id);
 
         if ($fichier) {

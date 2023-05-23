@@ -50,7 +50,7 @@ class UserController extends Controller
         $user->password = $hashedPassword ; 
 
         if ($request->hasFile('photo_user')) {
-            $path = $request->photo_user->store('fichiers');
+            $path = $request->photo_user->store('profile_pictures', 'public');
            $user->photo_user=$path;
         }
         $user->save();
@@ -106,12 +106,12 @@ class UserController extends Controller
         $user->password = $hashedPassword ; 
 
         if ($request->hasFile('photo_user')) {
-            $path = $request->photo_user->store('fichiers');
+            $path = $request->photo_user->store('profile_pictures', 'public');
            $user->photo_user=$path;
         }
         $user->update();
 
-        return  redirect()->route('users.index')->with('success', 'user mise à jour avec succèss');
+        return  redirect()->route('cours.index')->with('success', 'user mise à jour avec succèss');
     }
 
     /**

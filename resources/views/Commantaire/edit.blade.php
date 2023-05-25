@@ -37,8 +37,9 @@
       </div><br />
     @endif
 
-      <form method="post" action="{{ route('commantaire.store') }}"    enctype="multipart/form-data" >
-               @csrf
+      <form method="post" action="{{ route('commantaire.update',$Commantaire->id) }}"    enctype="multipart/form-data" >
+           @csrf
+          @method('PUT')
           <div class="form-group"> 
               <label for="Name">name  :</label>
               <input type="text" class="form-control" name="Name" value="{{ old('Name')}}"/>
@@ -53,9 +54,9 @@
           </div>
           <div class="form-group">
               <label for="Detail_comm">user i d :</label>
-              <input type="text" class="form-control" name="Cour_id" value="{{ old('user i d')}}"/>
+              <input type="text" class="form-control" name="Cour_id" value="{{ $Commantaire->Cour_id}}"/>
           </div>
-          <button type="submit" class="btn btn-primary">Ajouter</button>
+          <button type="submit" class="btn btn-primary">modifier</button>
       </form>
   </div>
 </div>

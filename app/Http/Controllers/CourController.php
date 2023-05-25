@@ -7,6 +7,7 @@ use App\Models\Commantaire;
 use App\Models\cour;
 use App\Models\User;
 use Facade\FlareClient\Http\Response;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PDO;
@@ -80,7 +81,7 @@ class CourController extends Controller
         ->orWhere('Name_domaine', 'like', '%'.$coure->Name_domaine.'%')
         ->orderBy('Name_domaine', 'desc')
         ->paginate(8);
-        
+     
         return view('cour.detail', compact('coure','cours')); 
     }
  

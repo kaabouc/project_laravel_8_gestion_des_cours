@@ -75,7 +75,7 @@
           <td> <form action="{{ route('download',substr($coure->Path_file ,9)) }}">
              <button type="submit">Download File</button>
            </form></td>
-           @guest
+     @guest
     <!-- Code pour les utilisateurs invités -->
          @else
           @if (Route::has('login'))

@@ -73,6 +73,9 @@
                     <li class="nav-item" >
                      <a class="nav-link" href="{{ route('users')}}">users</a>
                     </li>
+                    <li class="nav-item" >
+                     <a class="nav-link" href="/contact">message</a>
+                    </li>
                     @else 
                     <li class="nav-item" >
                      <a class="nav-link"  href="{{ route('user',Auth::user()->id)}}">profile</a>
@@ -264,23 +267,24 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <form>
-          <div class="form-row">
+        <form method="post" action="{{ route('contact.store') }}"    enctype="multipart/form-data">
+        @csrf 
+         <div class="form-row">
             <div class="form-group col-md-6">
-              <input type="text" class="form-control" id="inputName4" placeholder="Name ">
+              <input type="text" class="form-control" id="inputName4" placeholder="Name " name="Name">
             </div>
             <div class="form-group col-md-6">
-              <input type="email" class="form-control" id="inputEmail4" placeholder="Email id">
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Email id" name="Email">
             </div>
 
           </div>
           <div class="form-row">
             <div class="form-group col">
-              <input type="text" class="form-control" id="inputSubject4" placeholder="Subject">
+              <input type="text" class="form-control" id="inputSubject4" placeholder="Subject" name="Subject">
             </div>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="inputMessage" placeholder="Message">
+            <input type="text" class="form-control" id="inputMessage" placeholder="Message" name="Message">
           </div>
           <div class="d-flex justify-content-center">
             <button type="submit" class="">Send</button>

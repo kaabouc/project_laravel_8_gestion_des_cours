@@ -8,12 +8,17 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Middleware\AdminMiddleware;
 
 class UserController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('AdminMiddleware')->only(['index', 'edit', 'create']);
+    }
     public function index()
     {
+      
         //$users = User::all();
         $users = User::where('role', '!=', 1)->get();
        // $cours = Cour::where('user_id',Auth::user()->id)->get();

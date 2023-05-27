@@ -9,6 +9,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\CommantaireController;
+use App\Http\Controllers\ContactController;
 use Inertia\Inertia;
 
 /*
@@ -71,6 +72,8 @@ Route::get('/page/about', function(){
 Route::get('/page/service', function(){
     return view('page.service');
 });
+
+Route::resource('contact', ContactController::class);
 
 Route::resource('users', UserController::class);
 Route::get('/user/{id}',  [App\Http\Controllers\UserController::class , 'show'])->name('user');
